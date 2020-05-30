@@ -1,0 +1,61 @@
+import time
+import board
+import pulseio
+import servo
+ 
+# create a PWMOut object on Pin A2.
+leftfoot = pulseio.PWMOut(board.D9, duty_cycle=2 ** 15, frequency=50)
+rightfoot = pulseio.PWMOut(board.D10, duty_cycle=2 ** 15, frequency=50)
+
+leftleg = pulseio.PWMOut(board.D11, duty_cycle=2 ** 15, frequency=50)
+rightleg = pulseio.PWMOut(board.D12, duty_cycle=2 ** 15, frequency=50)
+
+leftdown = servo.Servo(leftfoot)
+rightdown = servo.Servo(rightfoot)
+
+leftup = servo.Servo(leftleg)
+rightup = servo.Servo(rightleg)
+ 
+# Create a servo object, my_servo.
+
+while(1):
+    rightdown.angle = 90
+    rightup.angle = 90
+    leftdown.angle = 90
+    leftup.angle = 90
+
+
+ 
+while True:
+    for angle in range(45, 135, 5):  # 0 - 180 degrees, 5 degrees at a time.
+        rightdown.angle = angle
+        time.sleep(0.05)
+    for angle in range(135, 45, -5): # 180 - 0 degrees, 5 degrees at a time.
+        leftdown.angle = angle
+        time.sleep(0.05)
+    time.sleep(0.05)
+    for angle in range(135, 90, -5):
+        rightdown.angle = angle
+        time.sleep(0.05)
+    for angle in range(45, 90, 5): # 180 - 0 degrees, 5 degrees at a time.
+        leftdown.angle = angle
+        time.sleep(0.05)
+
+    time.sleep(1.0)
+    for angle in range(30, 130, 10):  # 0 - 180 degrees, 5 degrees at a time.
+        rightup.angle = angle
+        time.sleep(0.05)
+    for angle in range(130, 30, -5): # 180 - 0 degrees, 5 degrees at a time.
+        leftup.angle = angle
+        time.sleep(0.05)
+    time.sleep(0.05)
+    for angle in range(130, 90, -10):  # 0 - 180 degrees, 5 degrees at a time.
+        rightup.angle = angle
+        time.sleep(0.05)
+    for angle in range(30, 90, 5): # 180 - 0 degrees, 5 degrees at a time.
+        leftup.angle = angle
+        time.sleep(0.05)
+    rightup.angle = 90
+    rightdown.angle = 90
+    leftdown.angle =90
+    leftup.angle=90
