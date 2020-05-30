@@ -2,6 +2,8 @@
 
 To have to robot seemingly do multiple things at once, we broke each task down to smaller tasks and then cycled through all of the tasks in the master loop. The ultrasonic sensor, and the LCD updates took negligible time but the dance moves and music needed to be broken up into smaller tasks.  All dance moves were comprised of “mini moves” and the “mini move” to be executed was chosen based on the iteration of the master loop. For the music, the note and pause were chosen based on the iteration of the master loop.
 
+*UBC CPEN291 (Lena Kim, Alyssa Da Costa, Emily Lukas, Madeline Ferguson, Sarah Bornais, Sofia Bandeira)</br>
+
 ## Awkward Shuffle
 The awkward shuffle is a simple shuffle of each foot in a 45 degree range, moving out from 90 degrees (feet facing forwards).  One foot shuffles and moves back to 90 degrees, and then the other foot does the same. This dance is performed when the ultrasonic sensor detects an object within 20 cm of the robot.  
 
@@ -27,5 +29,3 @@ This dance is meant to be energetic and fun, with the robot jumping up and down 
 The image displayed on the LCD is dependent on the sensor readings; if a nearby object is detected, the robot will revert to the awkward shuffle dance and display an uncomfortable line: “... hi?” . Otherwise, if no nearby objects are in sensed, the robot will move to one of its carefree, expressive dances and this will be reflected on the LCD screen by the lyrics to the song the buzzer is playing.  If the robot is awkward dancing, it will display a statement to go with it. 
 The LCD is mounted on a protoboard and secured to hover just above the top of the robot’s body, like a face. 
 
-
-*UBC CPEN291 (Lena Kim, Alyssa Da Costa, Emily Lukas, Madeline Ferguson, Sarah Bornais, Sofia Bandeira)
